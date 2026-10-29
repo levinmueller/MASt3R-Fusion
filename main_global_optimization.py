@@ -207,7 +207,8 @@ if __name__ == "__main__":
     gyro_noise_sigma = noise[1]  * 1
     accel_bias_rw_sigma = noise[2] * 1
     gyro_bias_rw_sigma = noise[3] * 1
-    GRAVITY = 9.81
+    # GRAVITY = 9.81
+    GRAVITY = 1.62
     measured_acc_cov = np.eye(3,3) * math.pow(accel_noise_sigma,2)
     measured_omega_cov = np.eye(3,3) * math.pow(gyro_noise_sigma,2)
     integration_error_cov = np.eye(3,3) * 0e-8
@@ -227,7 +228,8 @@ if __name__ == "__main__":
     gyro_noise_sigma = noise[1] 
     accel_bias_rw_sigma = noise[2]
     gyro_bias_rw_sigma = noise[3]
-    GRAVITY = 9.81
+    #GRAVITY = 9.81
+    GRAVITY = 1.62
     measured_acc_cov = np.eye(3,3) * math.pow(accel_noise_sigma,2)
     measured_omega_cov = np.eye(3,3) * math.pow(gyro_noise_sigma,2)
     integration_error_cov = np.eye(3,3) * 0e-8
@@ -246,7 +248,8 @@ if __name__ == "__main__":
     gyro_noise_sigma =  noise[1] * 1
     accel_bias_rw_sigma = noise[2]
     gyro_bias_rw_sigma = noise[3]
-    GRAVITY = 9.81
+    #GRAVITY = 9.81
+    GRAVITY = 1.62
     measured_acc_cov = np.eye(3,3) * math.pow(accel_noise_sigma,2)
     measured_omega_cov = np.eye(3,3) * math.pow(gyro_noise_sigma,2)
     integration_error_cov = np.eye(3,3) * 0e-8
@@ -577,7 +580,7 @@ if __name__ == "__main__":
     #! Visualize loop edges
     plt.figure('234',figsize=[4.2,4.2])
     from matplotlib import cm, colors
-    base_cmap = cm.get_cmap("autumn")
+    base_cmap = plt.get_cmap("autumn")
     def smooth_remap(x, gamma=0.5):
         return np.power(x, gamma)
 

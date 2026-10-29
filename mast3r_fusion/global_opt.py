@@ -176,7 +176,8 @@ class FactorGraph:
         gyro_noise_sigma = noise[1]
         accel_bias_rw_sigma = noise[2]
         gyro_bias_rw_sigma = noise[3]
-        GRAVITY = 9.81
+        # GRAVITY = 9.81
+        GRAVITY = 1.62
         measured_acc_cov = np.eye(3,3) * math.pow(accel_noise_sigma,2)
         measured_omega_cov = np.eye(3,3) * math.pow(gyro_noise_sigma,2)
         integration_error_cov = np.eye(3,3) * 0e-8

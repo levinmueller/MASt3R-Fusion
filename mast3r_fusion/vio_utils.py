@@ -144,7 +144,8 @@ def VisualIMUAlignment(
     g = x[-4:-1]
     print('init g:',g)
     # RefineGravity
-    g0 = g / np.linalg.norm(g) * 9.81
+    #g0 = g / np.linalg.norm(g) * 9.81
+    g0 = g / np.linalg.norm(g) * 1.62
     lx = np.zeros(3)
     ly = np.zeros(3)
     n_state = all_frame_count * 3 + 2 + 1
@@ -196,14 +197,16 @@ def VisualIMUAlignment(
         x = np.matmul(np.linalg.inv(A),b)
         dg = x[-3:-1]
         g0 = g0 + np.matmul(lxly,dg)
-        g0 = g0 / np.linalg.norm(g0) * 9.81
+        #g0 = g0 / np.linalg.norm(g0) * 9.81
+        g0 = g0 / np.linalg.norm(g0) * 1.62
         s = x[-1] / 100.0
         # print(s,g0,x)
     if disable_scale:
         s = 1.0
         
     print('g,s:',g,s)
-    if np.fabs(np.linalg.norm(g) - 9.81 ) < 0.5 and s > 0:
+    #if np.fabs(np.linalg.norm(g) - 9.81 ) < 0.5 and s > 0:
+    if np.fabs(np.linalg.norm(g) - 1.62) < 0.5 and s > 0:
         print('V-I successfully initialized!')
     
     # visualInitialAlign
